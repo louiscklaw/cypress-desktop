@@ -1,0 +1,13 @@
+services:
+  # this container will run Cypress test using Chrome browser
+  cy_chrome:
+    image: 'piopirahl/cypress-desktop-browsers:all-1.0.7'
+    # container_name: cypress
+    # "cypress/included" images have entrypoint set to globally installed cypress
+    # so the command can simply add any arguments
+    ports:
+      - 5901:5901
+      - 6901:6901
+    command: '--browser chrome'
+    volumes:
+      - ./src:/src/cypress
